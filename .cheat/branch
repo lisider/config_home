@@ -1,0 +1,60 @@
+# 1. 新建分支
+$ git branch [branch-name] # 新建一个分支，但依然停留在当前分支
+
+$ git checkout -b [branch] # 新建一个分支，并切换到该分支
+
+$ git branch [branch] [commit] # 新建一个分支，指向指定commit
+
+$ git branch --track [branch] [remote-branch] # 新建一个名为 [branch] 的分支，与指定的远程分支建立追踪关系
+
+$ git checkout --track origin/dev # 新建一个同名 dev 分支，与指定的远程分支建立追踪关系
+
+# 2. 切换分支
+$ git checkout [branch-name] # 切换到指定分支，并更新工作区
+
+$ git checkout - # 切换到上一个分支
+
+# 3. 查看分支
+$ git branch # 列出所有本地分支
+
+$ git branch -r # 列出所有远程分支
+
+$ git branch -a # 列出所有本地分支和远程分支
+
+$ git branch -vv # 查看绑定关系
+* dev    6ec6694 [origin/dev] add 12 on dev
+master 7ea920f [origin/master] add 11
+
+$ git log --graph --all --decorate #查看 被创建分支 与原分支 的关系
+
+# 4. 设置给定分支
+
+$ git branch --set-upstream [branch] [remote-branch] # 建立追踪关系，在现有分支与指定的远程分支之间
+
+# 5. 分支间交互
+
+$ git merge [branch] # 合并指定分支到当前分支
+$ git merge [remote-branch] # 合并指定远程分支到当前分支,注意,此时远程分支已经在本地更新
+
+$ git cherry-pick [commit] # 选择一个commit，合并进当前分支,合并的是该提交以及之前的提交
+
+$ git diff <branch1> <branch2> #比较分支
+
+# 6. 删除分支
+
+$ git branch -d [branch-name] # 删除本地分支
+
+$ git branch -r -d origin/branch-name #删除本地的远程分支 
+$ git push origin --delete [branch-name] # 删除远程的远程分支 同时删除本地的远程分支
+或者
+$ git push origin :branch-name   #删除远程的远程分支 同时删除本地的远程分支
+git push origin :refs/dev2 # 错误,或许在某些情况下正确
+git push origin :refs/for/dev2 # git 原生不支持,gerrit 支持
+
+-----------------------------------------------
+
+[branch]  master
+
+[remote-branch] origin/master
+
+-----------------------------------------------

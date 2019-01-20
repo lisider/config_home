@@ -1,0 +1,19 @@
+# 工作区
+# 暂存区(最新一次 add)
+# 版本库(最新一次commit)
+#
+#查看工作区
+git ls-files
+#工作区和 暂存区
+git diff <file>
+
+#工作区和 版本库
+git diff HEAD
+
+
+#暂存区和版本库
+git diff --staged   # 比较暂存区和版本库差异
+git diff --cached   # 比较暂存区和版本库差异
+
+# add 后 回退
+git checkout -- filename

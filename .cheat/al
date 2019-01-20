@@ -1,0 +1,1 @@
+sudo update-alternatives --install /usr/bin/vi vi /home/pop/bin/vim72/bin/vim  72

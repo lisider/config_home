@@ -1,0 +1,67 @@
+# 提交的意义
+HEAD 默认指向当前工作的分支,分支只能指向该分支的最新提交
+HEAD 也可以指向提交
+
+可以用 checkout 分支名 来改变 HEAD
+可以用 commit 来改变 分支
+也可以用 revert reset 来改变分支
+
+git checkout dev # 改变了 HEAD ,且 当前最新 commit-id 为 最新提交
+git checkout commit-id # 没有改变 分支 ,改变了 HEAD
+git checkout dev # 切换到最新提交
+
+
+# 查看分支当前的提交
+git log | grep "^Author: " | awk '{print $2}' | sort | uniq -c | sort -k1,1nr 查看当前分支所有提交者及其次数
+
+
+# 查看当前分支最新的提交,即HEAD
+git show HEAD
+
+# 查看所有分支最新的提交
+git show dev
+git show master
+git branch -vv
+
+# 查看提交注释
+git log -p -2 # 最新两次提交的差异
+git log --state # 查看提交行数
+git log --pretty=oneline <filename> #查找指定文件的 提交记录
+git config --global alias.hist 'log --pretty=format:"%C(auto)%h %ad | %C(auto)%s%d  %Cblue(%an)" --graph --date=short'
+
+# 查看提交具体内容
+git log --pretty=oneline <filename> #查找指定文件的 提交记录
+git show <commit id> <filename> #查找 某次提交 中 某个文件的改动
+
+git show HEAD <filename>
+
+# 合并提交
+git merge branch <commit id>
+
+#对 HEAD的操作 回退
+## 本地 提交后回退
+git reset file //文件的修改还在
+git reset <commit> //回到 commit 之后,但是工作目录还在,修改还在
+git reset --hard <commit>//回到commit 之后,工作目录不在,修改不在
+git reset --hard HEAD^
+git reset --hard Obfafd
+
+git revert HEAD #撤销前一次 commit
+git revert HEAD~1 # 销上上次 commit 
+git revert commit-id #销指定的版本，撤销也会作为一次提交进行保存
+## 远程 提交后 回退
+# push 后回退
+# merge 后回退
+
+HEAD 
+没有 head ,只有 HEAD
+
+refers/HEAD
+
+HAAD
+
+refers/for/HEAD
+
+origin/master
+
+remotes/origin/master

@@ -1,0 +1,35 @@
+# 1. 远程push交互模型
+
+git push <远程主机名> <本地分支名>:<远程分支名> 
+git push <远程主机名> <本地分支名> 
+git push <远程主机名> :<远程分支名> 
+
+将本地分支 推送到 远程分支 
+如果远程分支不存在,则创建.
+如果本地分支为空,则删除远程分支
+
+# 2. 设置分支的默推送主机并推送
+git push -u origin master
+
+# 3. 常用推送
+
+git push #推送当前分支到 默认推动主机的 与 master 分支绑定的分支
+git push origin master
+git push origin HEAD
+
+# 4. 强制推送
+
+#不推荐git push --force origin ## 不推荐
+
+# 5. 推送标签
+git push origin --tags # 默认不推送标签
+git push origin tag_name
+
+# 6.sample
+$git push origin master 
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 255 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+    To git@github.com:lisider/testgit.git
+       fc52860..3a5efe5  master -> master # 提交 从 fc52860 到 3a5efe5 的更新
+

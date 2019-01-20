@@ -1,0 +1,11 @@
+sudo useradd user   -s /bin/bash -m  -G sudo ;sudo passwd user
+
+sudo useradd test -u 700  -s /bin/bash -m -g linux -G sudo
+
+usermod -d /home/hnlinux root
+
+usermod -u 777 root
+
+sudo userdel pop
+
+sudo userdel pop -r

@@ -1,0 +1,23 @@
+# 1. 初始化仓库 
+git init
+
+# 2. 下载仓库
+git clone -b dev url
+git clone url
+
+# 3. 绑定远程仓库
+git remote add origin url
+git remote set-url origin git@github.com:robbin/robbin_site.git
+
+# 4. 查看仓库
+git remote -v
+git remote show <仓库名>
+
+# 5. 解绑远程仓库
+git remote remove origin
+git remote rm
+
+# 6. 设置当前仓库为远程仓库
+
+git clone ssh://${MY_USER_NAME}@${MY_IP}/${MY_PWD}
+git clone ssh://pop@192.168.1.2/home/pop/project

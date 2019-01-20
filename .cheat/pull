@@ -1,0 +1,51 @@
+# 1. 远程pull交互模型
+
+git pull <远程主机名> <远程分支名>:<本地分支名> 
+git pull <远程主机名> <远程分支名> 
+
+过程的分解
+
+git fetch <远程主机名> <远程分支名>
+git merge <本地分支名> <远程主机名>/<远程分支名> 
+
+# 2. 下载更新并合并
+
+git pull #抓取远程仓库所有分支更新并将 与当前分支绑定的远程分支 合并到当前分支
+git pull –no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并
+git pull upstream master
+
+# 3. 下载更新 #下拉远程分支更新
+
+如何查看下拉的远程分支更新
+git fetch 
+git fetch origin # 下载 仓库上的所有分支更新,分别到 分支绑定 的 origin/xxx 上
+git fetch origin master # 抓取远程仓库更新 ,体现在 origin/master 上
+git fetch origin master:tmp #取远程仓库更新 ,体现在 origin/master 上,并以 origin/master 创建一个新分支 tmp
+
+# 5. 删除更新
+
+下拉的远程分支更新如何体现
+在 origin/master origin/dev 上
+
+如何删除下拉的远程分支更新
+git checkout origin/master
+git log
+git reset --hard <commit>
+
+# 6. 比较更新
+git diff master origin/master
+
+# 7. 合并更新
+git merger master origin/master
+
+
+# 7. 安全的拉代码
+# 
+git fetch origin master # 抓取远程仓库更新
+git log -p master..origin/master
+git merge origin/master
+
+git fetch origin master:tmp
+git diff tmp
+git merge tmp
+git branch -d tmp

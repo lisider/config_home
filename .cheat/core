@@ -1,0 +1,4 @@
+sudo su -
+echo "%e.core" > /proc/sys/kernel/core_pattern
+exit
+ulimit -c unlimited
