@@ -1,1 +1,15 @@
 alias timing="sudo ntpdate 210.72.145.44"
+
+alias rm!="/bin/rm -vi"
+alias rm=trash-put
+alias lstrash=trash-list
+
+#run 10 echo "hello"
+function run() {
+    number=$1
+    shift
+    for n in $(seq $number);
+    do
+        $@
+    done
+}

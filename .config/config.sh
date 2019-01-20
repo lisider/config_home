@@ -4,7 +4,10 @@ CONFIG_BASE=~/.config
 
 source ${CONFIG_BASE}/conf/base.conf
 
-source ${CONFIG_BASE}/func/config1.sh
+#source ${CONFIG_BASE}/func/config1.sh
+
+# 基本配置 conf
+source ${CONFIG_BASE}/func/base_conf.sh
 
 
 Main(){
@@ -16,7 +19,9 @@ Main(){
 	cd ${CONFIG_BASE}
 
 	# 脚本1
-	Config1
+    #Config1
+    # 基本配置 sh
+	BaseConf
 }
 
 Main $*
