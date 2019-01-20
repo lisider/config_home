@@ -1,0 +1,31 @@
+#!/bin/bash
+
+dec2hex(){
+        printf "hex:0x%x\n" $1
+}
+
+dec2oct(){
+        printf "oct:0x%o\n" $1
+}
+
+Main(){
+
+    if [ $# -eq 0 ];then
+        echo "$0 0x09-0x05"
+        echo "$0 13-0xA"
+        exit 0
+    fi
+
+    ret=`echo $* | tr '[a-z]' '[A-Z]' | xargs echo ibase = 16 \;  | sed "s/0X//g" |bc`
+
+    # 下面提供了三种方法进行转换进制
+
+    dec2hex ${ret} # 十六进制
+    echo dec:$((ret))  # 十进制
+    dec2oct ${ret} # 八进制
+    echo -n bin:
+    echo "obase=2;${ret}"|bc # 二进制
+}
+
+
+Main $*
