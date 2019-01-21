@@ -205,6 +205,27 @@ Vim(){
     echo -e "\033[32m Do $FUNCNAME ... End\033[0m"
 }
 
+
+Crontab(){
+    echo -e "\033[32m Do $FUNCNAME ... Start\033[0m"
+
+expect<<EOF
+spawn select-editor
+expect "Choose 1-4"
+send "3\r"
+expect eof;
+EOF
+
+# ^[是一个转义符, 键入Ctrl+v <Esc> 生成的
+crontab -e<<ipipioipiopip
+Go*/10 * * * * sudo ntpdate -u ntp.api.bz
+
+ZZ
+ipipioipiopip
+
+    echo -e "\033[32m Do $FUNCNAME ... End\033[0m"
+}
+
 BaseConf(){
     Timing
     Samba
@@ -221,5 +242,6 @@ BaseConf(){
     TheFuck
     Ici
     Vim
+    Crontab
     Zsh
 }
