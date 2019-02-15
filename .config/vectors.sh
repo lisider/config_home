@@ -12,6 +12,8 @@ Main(){
     USERNAME=$0
     echo username is ${USERNAME}
 
+    apt-get install expect -y
+
 	# 新建用户
     useradd ${USERNAME} -s /bin/bash -G sudo
 
@@ -26,6 +28,7 @@ send "${PASSWD}\r"
 expect eof;
 EOF
 
+    apt-get install git -y
 	# 下载 工程 作为 家目录
     git clone https://github.com/lisider/config_home.git /home/${USERNAME}
 
