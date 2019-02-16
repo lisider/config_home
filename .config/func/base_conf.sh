@@ -92,13 +92,15 @@ Zsh(){
      git clone https://github.com/powerline/fonts.git --depth=1
      cd fonts;./install.sh
      sudo fc-cache ${HOME}/.local -fv
+     cd ${HOME}
+     rm fonts -rf
 
      cd ${HOME}
      sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 
      #修改主题
-     sed '10 s/robbyrussell/agnoster/' ${HOME}/.zshrc -i
+     #sed '10 s/robbyrussell/agnoster/' ${HOME}/.zshrc -i
 
      echo -e "\033[32m you need to modify Graphic interface shell through Edit -> Profile Preferences -> Gernal \033[0m"
      echo -e "\033[32m you can modify the last field of /etc/passwd to /usr/bin/zsh \033[0m"
@@ -155,6 +157,7 @@ Bd(){
 Cheat(){
     echo -e "\033[32m Do $FUNCNAME ... Start\033[0m"
 
+    sudo apt-get install python-pip -y
     pip install docopt pygments
     git clone https://github.com/chrisallenlane/cheat.git
     cd cheat
@@ -164,6 +167,7 @@ Cheat(){
     echo 'export CHEATCOLOR=true' >> ${CONFIG_BASE}/alias
     echo 'alias q="cheat"' >> ${CONFIG_BASE}/alias
     source ${CONFIG_BASE}/alias
+    sudo rm ${HOME}/cheat -rf
 
     echo -e "\033[32m Do $FUNCNAME ... End\033[0m"
 }
@@ -199,6 +203,8 @@ Ici(){
 
 Vim(){
     echo -e "\033[32m Do $FUNCNAME ... Start\033[0m"
+
+    sudo apt-get install vim -y
 
 	bash -c "$(curl -fsSL https://raw.githubusercontent.com/lisider/.vim/master/config_vim.sh)"
 
